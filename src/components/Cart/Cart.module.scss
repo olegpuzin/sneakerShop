@@ -1,0 +1,195 @@
+.overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.overlayVisible {
+    animation: overlay_visible 0.5s ease-in-out ;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 420px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ffffff;
+    box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+    z-index: 1;
+    animation: cart_on 0.3s ease-in-out;
+
+    .wrapper_box {
+
+        .cart_title {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            margin-bottom: 30px;
+            font-style: 24px;
+        }
+
+        .items {
+            flex: 1;
+            overflow: auto;
+            margin-bottom: 40px;
+
+            .cart_item {
+                display: flex;
+                align-items: center;
+                border: 1px solid #f3f3f3;
+                border-radius: 20px;
+                overflow: hidden;
+                margin-bottom: 20px;
+
+                .cart_img_product {
+                    width: 70px;
+                    height: 70px;
+                    background-size: contain;
+                    background-position: 0 -2px;
+                    background-repeat: no-repeat;
+                    margin-right: 20px;
+                    margin-left: 5px;
+                }
+
+                .cart_info_product {
+                    margin-right: 20px;
+
+                    .cart_name_product {
+                        font-size: 16px;
+                        margin-bottom: 5px;
+                    }
+
+                    .cart_price_product {
+                        font-size: 14px;
+                    }
+                }
+
+                .cart_btn_remove,
+                .cart_title img {
+                    opacity: 0.5;
+                    transition: opacity 0.15s ease-in-out;
+                    cursor: pointer;
+                    margin-left: 65px;
+
+                    .cart_btn_remove:hover,
+                    .cart_title img:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .cart_total {
+
+            .total_price_block,
+            .total_tax_block {
+                display: flex;
+                align-items: flex-end;
+                margin-bottom: 20px;
+
+                .total_line,
+                .tax_line {
+                    flex: 1;
+                    height: 1px;
+                    border-bottom: 1px dashed #dfdfdf;
+                    position: relative;
+                    top: -4px;
+                    margin: 0 7px;
+                }
+            }
+
+            .cart_btn {
+                position: relative;
+                text-align: center;
+                width: 100%;
+                height: 55px;
+                background-color: #9dd558;
+                border-radius: 18px;
+                border: 0;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out;
+            
+                &:hover {
+                    background-color: lighten (#9dd558, 5%);
+
+                    img {
+                        transform: translateX(5px);
+                    }
+                    
+                }
+            
+                &:active {
+                    background-color: darken (#9dd558, 5%);
+                }
+
+                &:disabled {
+                    background: #bebebe !important;
+                    animation: btn_loading 0.6s ease-in-out infinite;
+                    cursor: default;
+                }
+
+                img {
+                    position: absolute;
+                    top: 20px;
+                    right: 30px;
+                    transition: transform 0.15s ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+
+
+@keyframes btn_loading {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes cart_on {
+    0% {
+        // opacity: 0;
+        // visibility: hidden;
+        transform: translateX(100%);
+    }
+
+    100% {
+        // opacity: 1;
+        // visibility: visible;
+        transform: translateX(0);
+    }
+}
+
+@keyframes overlay_visible {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}

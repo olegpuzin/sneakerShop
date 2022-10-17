@@ -1,0 +1,78 @@
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 1px solid #F3F3F3;
+  padding: 30px;
+  width: 220px;
+  border-radius: 40px;
+  -webkit-transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: -webkit-box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out;
+  transition: box-shadow 0.2s ease-in-out, -webkit-box-shadow 0.2s ease-in-out;
+  -webkit-transform: box-shadow 0.2s ease-in-out;
+          transform: box-shadow 0.2s ease-in-out;
+  cursor: pointer;
+  margin-bottom: 35px;
+}
+
+.card .card:hover {
+  -webkit-box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+          box-shadow: 0px 20px 35px rgba(0, 0, 0, 0.06);
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+}
+
+.card .favorite {
+  position: absolute;
+  cursor: pointer;
+}
+
+.card .card_title {
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.card .card_price_info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.card .card_price_info .card_price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.card .card_price_info .card_price_text {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.5;
+  text-transform: uppercase;
+}
+
+.card .card_price_info .card_price_sum {
+  font-style: 13px;
+}
+
+.card .card_price_info .card_button {
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}

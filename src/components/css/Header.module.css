@@ -1,0 +1,62 @@
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 40px;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.header .headerLeft {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .headerLeft .wraper_logo_img {
+  margin-right: 15px;
+}
+
+.header .headerLeft .logo_name .logo_name_title {
+  text-transform: uppercase;
+}
+
+.header .headerLeft .logo_name .logo_name_text {
+  margin: 0;
+}
+
+.header .headerRight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .headerRight .headerRight_cart {
+  cursor: pointer;
+}
+
+.header .headerRight .headerRight_cart .headerRight_cart_sum {
+  font-size: 18px;
+  color: #7e7e7e;
+  margin-left: 10px;
+}
+
+.header .headerRight .headerRight_user {
+  cursor: pointer;
+}
+
+.header .headerRight .headerRight_user .headerRight_favorite_img {
+  cursor: pointer;
+  margin: 0 30px;
+}
