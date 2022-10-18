@@ -1,0 +1,102 @@
+@import "../scss/core/mixins";
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-bottom: 1px solid #eaeaea;
+
+    @include widthMedia(max, 800px) {
+        padding: 25px;
+    }
+
+    @include widthMedia(max, 600px) {
+        padding: 20px;
+    }
+
+    @include widthMedia(max, 390px) {
+        padding: 15px 6px;
+    }
+
+    .headerLeft {
+        display: flex;
+        align-items: center;
+
+        .wraper_logo_img {
+            margin-right: 15px;
+        }
+
+        .logo_name {
+
+            .logo_name_title {
+                text-transform: uppercase;
+
+                @include widthMedia(max, 500px) {
+                    font-size: 15px;
+                }
+            }
+
+            .logo_name_text {
+                margin: 0;
+
+                @include widthMedia(max, 500px) {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .headerRight {
+        display: flex;
+        align-items: center;
+
+        .headerRight_icon {
+            cursor: pointer;
+
+            .headerRight_cart_sum {
+                font-size: 18px;
+                color: #7e7e7e;
+
+                @include widthMedia(max, 600px) {
+                    font-size: 0;
+                }
+            }
+
+            .headerRight_cart_sum_active {
+                font-size: 18px;
+                color: #22c804;
+
+                @include widthMedia(max, 600px) {
+                    font-size: 0;
+                }
+            }
+
+            .headerRight_icon_img {
+                cursor: pointer;
+                margin: 0 30px -2px 0;
+
+                @include widthMedia(max, 600px) {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                @include widthMedia(max, 375px) {
+                    margin: 0 15px -2px 0;
+                }
+            }
+
+            .headerRight_icon_cart {
+                margin-right: 10px;
+                margin-bottom: -2px;
+
+                @include widthMedia(max, 600px) {
+                    width: 24px;
+                    height: 24px;
+                }
+
+                @include widthMedia(max, 375px) {}
+            }
+        }
+    }
+}

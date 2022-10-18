@@ -9,7 +9,7 @@
 }
 
 .overlayVisible {
-    animation: overlay_visible 0.5s ease-in-out ;
+    animation: overlay_visible 0.5s ease-in-out;
 }
 
 .cart {
@@ -121,16 +121,15 @@
                 font-weight: 500;
                 cursor: pointer;
                 transition: background-color 0.2s ease-in-out;
-            
+
                 &:hover {
                     background-color: lighten (#9dd558, 5%);
 
                     img {
                         transform: translateX(5px);
                     }
-                    
                 }
-            
+
                 &:active {
                     background-color: darken (#9dd558, 5%);
                 }
@@ -151,8 +150,6 @@
         }
     }
 }
-
-
 
 @keyframes btn_loading {
     0% {

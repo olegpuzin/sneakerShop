@@ -1,13 +1,13 @@
 import React from "react";
-import Card from "../components/Card/Card";
-import styles from "../pages/Home.module.scss";
+
+import Card from "../components/Card";
+import SliderComponent from "../components/SliderComponent";
+import styles from "../scss/Home.module.scss";
 
 
-function Home({items, searchValue, setSearchValue, onChangeSearchInput,
-    onAddToFavotite, onAddToCart, isLoading}) {
+function Home({items, searchValue, setSearchValue, onChangeSearchInput, isLoading}) {
 
     const renderItems = () => {
-
         const filtredItems = items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()));
         
         return (isLoading ? [...Array(8)] : filtredItems).map((item, index) => (
@@ -19,8 +19,10 @@ function Home({items, searchValue, setSearchValue, onChangeSearchInput,
         ));
     };
 
+
     return (
         <div className={styles.wrapper}>
+            <SliderComponent />
             <div className={styles.wrapper_title}>
                 <h1 className={styles.title}>{searchValue ? `Search: "${searchValue}"` : "All sneakers"}</h1>
                 <div className={styles.search_block}>
@@ -42,6 +44,6 @@ function Home({items, searchValue, setSearchValue, onChangeSearchInput,
             <div className={styles.products}>{renderItems()}</div>
         </div>
     );
-}
+};
 
 export default Home;

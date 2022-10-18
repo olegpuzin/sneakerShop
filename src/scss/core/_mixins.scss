@@ -1,0 +1,6 @@
+@mixin widthMedia($range, $width) {
+    @media screen and (#{$range}-width: $width) {
+    @content;
+    }
+    
+}

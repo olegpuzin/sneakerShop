@@ -1,9 +1,9 @@
 import React from "react";
 import axios from 'axios';
-import styles from "./Cart.module.scss";
-import Info from "../../Info/Info";
+import styles from "../scss/Cart.module.scss";
+import Info from "../components/Info";
 
-import { useCart } from "../../hooks/useCart";
+import { useCart } from "../hooks/useCart";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -29,13 +29,12 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                 const item = cartItems[i];
                 await axios.delete('https://62dbdf9a4438813a260c4c1a.mockapi.io/cart/' + item.id);
                 await delay(1000);
-            }
+            };
         } catch (error) {
             alert('Ошибка при создании заказа :(');
-        }
+        };
         setIsLoading(false);
     };
-    console.log(onClose)
 
     return (
         <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ''}`}>
@@ -99,12 +98,11 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                                 : ("Add at least one pair of sneakers to checkout.")
                             }
                             image={isOrderComplete ? ("img/cart/info.png") : ("img/cart/empty_cart.png")} />
-
                     )}
                 </div>
             </div>
         </div>
     )
+};
 
-}
 export default Cart;

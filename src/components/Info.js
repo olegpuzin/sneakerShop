@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+
 import AppContext from '../context';
-import styles from '../Info/Info.module.scss';
+import styles from '../scss/Info.module.scss';
 
 const Info = ({ title, image, descrintion }) => {
 
-    const {setCartOpened} = React.useContext(AppContext);
+    const { setCartOpened } = React.useContext(AppContext);
 
     return (
         <div className={styles.cart_empty}>
@@ -18,7 +19,7 @@ const Info = ({ title, image, descrintion }) => {
                 Return back
             </button>
         </div>
-    )    
-}
+    )
+};
 
 export default Info;

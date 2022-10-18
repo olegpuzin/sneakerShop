@@ -1,12 +1,13 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import axios from 'axios';
-import Header from "./components/Header/Header";
+
+import AppContext from "./context";
+import Header from "./components/Header";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import Orders from "./pages/Orders";
-import Cart from "./components/Cart/Cart";
-import AppContext from "./context";
-import { Routes, Route } from "react-router-dom";
+import Cart from "./components/Cart";
 
 
 // const arr = [
@@ -31,6 +32,7 @@ function App() {
   const [cartOpened, setCartOpened] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
+
   React.useEffect(() => {
     async function fetchData() {
       try {
@@ -47,9 +49,8 @@ function App() {
       } catch (error) {
         alert('Ошибка при запросе данных :(');
         console.error(error);
-      }
-    }
-
+      };
+    };
     fetchData();
   }, []);
 
@@ -62,9 +63,8 @@ function App() {
         await axios.delete(`https://62dbdf9a4438813a260c4c1a.mockapi.io/cart/${findItem.id}`);
       } else {
         setCartItems((prev) => [...prev, obj]);
-        const { data } = await axios.post('https://62dbdf9a4438813a260c4c1a.mockapi.io/cart', obj);
-        
-        console.log(data);
+        await axios.post('https://62dbdf9a4438813a260c4c1a.mockapi.io/cart', obj);
+        // const { data } = await axios.post('https://62dbdf9a4438813a260c4c1a.mockapi.io/cart', obj);
         // setCartItems((prev) => prev.map((item) => {
         //     if (item.parentId === data.parentId) {
         //       return {
@@ -75,11 +75,11 @@ function App() {
         //     return item;
         //   })
         // )
-      }
+      };
     } catch (error) {
       alert('Ошибка при добавлении в корзину');
       console.error(error);
-    }
+    };
   };
 
   const onRemoveItem = (id) => {
@@ -89,9 +89,9 @@ function App() {
     } catch (error) {
       alert('Ошибка при удалении из корзины');
       console.error(error);
-    }
+    };
   };
-  
+
   const onAddToFavotite = async (obj) => {
     try {
       if (favorites.find((favObj) => Number(favObj.id) === Number(obj.id))) {
@@ -100,10 +100,10 @@ function App() {
       } else {
         const { data } = await axios.post('https://62dbdf9a4438813a260c4c1a.mockapi.io/favorites', obj);
         setFavorites(prev => [...prev, data]);
-      }
+      };
     } catch (error) {
       alert('Не удалось добавить в фовариты')
-    }
+    };
   };
 
   const onChangeSearchInput = (event) => {
@@ -112,39 +112,37 @@ function App() {
 
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.parentId) === Number(id));
-    
   };
+
 
   return (
     <AppContext.Provider value={{ items, cartItems, favorites, onAddToCart, isItemAdded, onAddToFavotite, setCartOpened, setCartItems }}>
       <div className="wrapper">
-
         <Header onClickCart={() => setCartOpened(true)} />
-
         {cartOpened && <Cart
           items={cartItems}
           onClose={() => setCartOpened(false)}
           onRemove={onRemoveItem}
-          opened ={cartOpened}
+          opened={cartOpened}
         />}
         <Routes>
           <Route path="/" element={
             <Home
-                items={items}
-                cartItems={cartItems}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                onChangeSearchInput={onChangeSearchInput}
-                onAddToFavotite={onAddToFavotite}
-                onAddToCard={onAddToCart}
-                isLoading={isLoading} />} 
+              items={items}
+              cartItems={cartItems}
+              searchValue={searchValue}
+              setSearchValue={setSearchValue}
+              onChangeSearchInput={onChangeSearchInput}
+              onAddToFavotite={onAddToFavotite}
+              onAddToCard={onAddToCart}
+              isLoading={isLoading} />}
           />
           <Route path="favorites" element={<Favorites />} />
           <Route path="orders" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>
-  );
-}
+  )
+};
 
 export default App;

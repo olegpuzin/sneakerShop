@@ -1,3 +1,5 @@
+@import "./scss/core/mixins";
+
 * {
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -22,10 +24,17 @@ body {
         border-radius: 20px;
         max-width: 1080px;
         margin: 50px auto;
-    }
 
-    
+        @include widthMedia(max, 1100px) {
+            margin: 20px 20px;
+        }
+
+        @include widthMedia(max, 600px) {
+            margin: 10px 10px;
+        }
+    }
 }
+
 .btn_green {
     position: relative;
     text-align: center;
@@ -48,4 +57,3 @@ body {
         background-color: darken (#9dd558, 5%);
     }
 }
-

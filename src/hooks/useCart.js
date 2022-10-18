@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import AppContext from "../context";
 
 export const useCart = () => {

@@ -1,7 +1,8 @@
 import React from "react";
-import Card from "../components/Card/Card";
+
 import AppContext from "../context";
-import styles from "../pages/Home.module.scss";
+import Card from "../components/Card";
+import styles from "../scss/Home.module.scss";
 
 
 function Favorites() {
@@ -26,6 +27,6 @@ function Favorites() {
         </div>
     );
 
-}
+};
 
 export default Favorites;

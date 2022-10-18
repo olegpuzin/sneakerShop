@@ -1,19 +1,15 @@
 import React from 'react';
-import ContentLoader from "react-content-loader"
+import ContentLoader from "react-content-loader";
 
-import AppContext from '../../context';
-import styles from "./Card.module.scss";
+import AppContext from '../context';
+import styles from "../scss/Card.module.scss";
 
 
-function Card({
-  id, imageUrl, title, price,
-  favorited = false, loading = false }) {
+function Card({ id, imageUrl, title, price, favorited = false, loading = false }) {
 
   const { isItemAdded, onAddToCart, onAddToFavotite } = React.useContext(AppContext);
 
-
   const [isFavorite, setIsFavorite] = React.useState(favorited);
-
 
   const obj = { id, parentId: id, title, imageUrl, price };
 
@@ -22,7 +18,7 @@ function Card({
   const onClickFavorite = () => {
     onAddToFavotite(obj);
     setIsFavorite(!isFavorite);
-  }
+  };
 
   return (
     <div className={styles.card} >

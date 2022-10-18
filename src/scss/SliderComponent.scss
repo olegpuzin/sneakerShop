@@ -1,0 +1,38 @@
+.wrapper_slider {
+    width: 100%;
+    margin: 0 auto;
+
+    .slider_img {
+        width: 100%;
+    }
+}
+
+.slick-slider {
+    position: relative;
+
+    .slick-prev,
+    .slick-next {
+        &::before {
+            font-size: 30px;
+        }
+    }
+
+    .slick-prev {
+        position: absolute;
+        left: 20px;
+        z-index: 1;
+    }
+
+    .slick-next {
+        position: absolute;
+        right: 20px;
+    }
+}
+
+.slick-dots li {
+    margin: 0 5px;
+
+    @media (max-width: 600px) {
+        margin: 0;
+    }
+}

@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
-import Card from "../components/Card/Card";
-import styles from "../pages/Home.module.scss";
 
+import Card from "../components/Card";
+import styles from "../scss/Home.module.scss";
 
 
 function Orders() {
-    
+
     const [orders, setOrders] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
@@ -41,7 +41,6 @@ function Orders() {
             </div>
         </div>
     )
-
-}
+};
 
 export default Orders;
